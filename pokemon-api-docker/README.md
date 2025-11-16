@@ -31,8 +31,8 @@ Jest para testes
 ---
 Estudantes:
 
-Geovana Rodrigues Paz Cruz
-Taís Döring
-Matheus Costa Pessanha
-Alysson Kennedy Oliveira
+Geovana Rodrigues Paz Cruz<br>
+Taís Döring<br>
+Matheus Costa Pessanha<br>
+Alysson Kennedy Oliveira<br>
 Carlos Nascimento
