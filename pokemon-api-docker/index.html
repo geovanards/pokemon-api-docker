@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI Explorer - Seu Guia Pokémon</title>
+    
+    <link rel="manifest" href="manifest.webmanifest"/>
+    <meta name="theme-color" content="#FFCD02"> <meta name="description" content="Explore todos os Pokémons com o PokeAPI Explorer. Busque e descubra detalhes de seus favoritos!">
+    
+    <link rel="icon" href="/icons/favicon.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <h1>PokeAPI Explorer</h1>
+            <p>Descubra o mundo Pokémon de forma rápida e divertida!</p>
+        </div>
+    </header>
+
+    <main id="app" class="app-container">
+        <p class="loading-message">Carregando Pokémons...</p>
+    </main>
+
+    <footer class="app-footer">
+        <p>Desenvolvido com <span class="heart">❤️</span> e dados da <a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer">Poke API</a></p>
+    </footer>
+
+    <script src="app.js"></script>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado com sucesso:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Falha no registro do Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

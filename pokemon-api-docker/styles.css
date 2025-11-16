@@ -1,0 +1,312 @@
+/* Importações de Fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+/* Variáveis CSS para cores e tamanhos */
+:root {
+    --primary-color: #d6b937; /* Amarelo Pikachu */
+    --secondary-color: #0c1981; /* Azul Cobalto */
+    --accent-color: #8b1010; /* Vermelho Pokeball */
+    --text-dark: #333;
+    --text-light: #f8f8f8;
+    --bg-light: #ffffff;
+    --bg-dark-card: #f0f0f0;
+    --border-light: #eca4a4;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --border-radius-base: 8px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+}
+
+/* Reset básico e estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #f2f6fa; /* Um cinza muito claro para o fundo */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 2.5em; font-weight: 700; }
+h2 { font-size: 1.8em; font-weight: 600; }
+h3 { font-size: 1.3em; font-weight: 600; }
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Header */
+.app-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: var(--spacing-md) var(--spacing-md);
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    border-bottom: 4px solid var(--accent-color);
+}
+
+.app-header h1 {
+    color: var(--text-light);
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-header p {
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+/* Main Container */
+.app-container {
+    flex-grow: 1;
+    max-width: 1200px;
+    margin: var(--spacing-lg) auto;
+    padding: 0 var(--spacing-md);
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 8px 16px var(--shadow-light);
+    padding: var(--spacing-lg);
+}
+
+/* Loading Message */
+.loading-message {
+    text-align: center;
+    padding: var(--spacing-md);
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    justify-content: center; /* Centraliza os itens */
+    align-items: center;
+}
+
+.search-box input[type="text"] {
+    flex-grow: 1; /* Faz o input ocupar o máximo de espaço */
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-base);
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    max-width: 350px; /* Limita a largura máxima do input */
+}
+
+.search-box input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 205, 2, 0.2);
+}
+
+/* Buttons */
+button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius-base);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    white-space: nowrap; /* Evita que o texto do botão quebre */
+}
+
+#btn-search {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+#btn-search:hover {
+    background-color: #2e3e9c; /* Tom mais escuro do azul */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(59, 76, 202, 0.3);
+}
+
+#btn-list, .btn-detail {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+}
+
+#btn-list:hover, .btn-detail:hover {
+    background-color: #992c2c; /* Tom mais escuro do vermelho */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(204, 0, 0, 0.3);
+}
+
+.btn-back {
+    background-color: #6c757d; /* Cinza para o botão de voltar */
+    color: var(--text-light);
+    margin-top: var(--spacing-md);
+}
+
+.btn-back:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+/* Pokemon List */
+.poke-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.poke-card {
+    background-color: var(--bg-dark-card);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-base);
+    text-align: center;
+    box-shadow: 0 2px 4px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.poke-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--shadow-light);
+}
+
+.poke-card span {
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--secondary-color);
+    font-size: 1.1em;
+}
+
+.poke-card .btn-detail {
+    width: 100%; /* Botão preenche a largura do card */
+    margin-top: var(--spacing-sm);
+}
+
+/* Pokemon Detail */
+.poke-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--bg-dark-card);
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+.poke-detail img {
+    max-width: 180px;
+    height: auto;
+    background-color: var(--bg-light); /* Fundo branco para a imagem */
+    border-radius: 50%; /* Torna a imagem circular */
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.poke-detail > div { /* Container para os parágrafos de detalhes */
+    text-align: center;
+}
+
+.poke-detail p {
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.poke-detail p strong {
+    color: var(--secondary-color);
+}
+
+/* Footer */
+.app-footer {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    box-shadow: 0 -4px 8px var(--shadow-light);
+    font-size: 0.9em;
+}
+
+.app-footer a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.app-footer a:hover {
+    color: var(--accent-color);
+}
+
+.app-footer .heart {
+    color: var(--accent-color);
+    margin: 0 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .app-header h1 {
+        font-size: 2em;
+    }
+    .app-header p {
+        font-size: 1em;
+    }
+    .app-container {
+        margin: var(--spacing-md) auto;
+        padding: var(--spacing-md);
+    }
+    .search-box {
+        flex-direction: column;
+    }
+    .search-box input[type="text"] {
+        max-width: 100%;
+    }
+    .poke-list {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: var(--spacing-sm);
+    }
+    .poke-detail {
+        flex-direction: column;
+    }
+    .poke-detail img {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.5em; }
+    .search-box input[type="text"], button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+    .poke-card span {
+        font-size: 1em;
+    }
+    .poke-detail p {
+        font-size: 1em;
+    }
+}
